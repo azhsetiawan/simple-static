@@ -12,6 +12,6 @@ gulp serve
 
 Docs
 
-*[Gulp](http://gulpjs.com/)
-*[Pug](https://pugjs.org)
-*[Bootstrap 3](http://getbootstrap.com/)
+* [Gulp](http://gulpjs.com/)
+* [Pug](https://pugjs.org)
+* [Bootstrap 3](http://getbootstrap.com/)
