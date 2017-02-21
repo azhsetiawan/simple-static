@@ -1,0 +1,71 @@
+extends layouts/default
+
+block head
+  title Test Mixins
+
+block content
+  .foo Test Mixins
+  // see https://pugjs.org/language/mixins.html
+  br
+
+  //- Declaration
+  mixin list
+    ul
+      li foo
+      li bar
+  //- Use
+  +list
+  +list
+
+  br
+
+  mixin pet(name)
+    li.pet= name
+  ul
+    +pet('cat')
+    +pet('dog')
+
+  br
+
+  mixin article(title)
+    .article
+      .article-wrapper
+        h1= title
+        if block
+          block
+        else
+          p No content provided
+
+  +article('Hello empty')
+
+  +article('Hello world')
+    p This is my
+    p Amazing article
+
+  br
+
+  mixin link1(href, name)
+    //- attributes == {class: "btn"}
+    a(class!=attributes.class href=href)= name
+
+  +link1('/foo', 'foo')(class="btn btn-primary")
+
+  br
+  br
+
+  mixin link2(href, name)
+    a(href=href)&attributes(attributes)= name
+
+  +link2('/foo', 'foo')(class="btn btn-success")
+
+  br
+  br
+
+  mixin list_rest(id, ...items)
+    ul(id=id)
+      each item in items
+        li= item
+
+  +list_rest('my-list', 1, 2, 3, 4)
+
+  br
